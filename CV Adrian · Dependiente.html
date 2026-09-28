@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Adrina · Dependienta de tienda · CV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&family=Archivo+Narrow:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--fg:#111;--mut:#777;--line:#e4e4e4;--card:#f5f5f3;--acc:#111;--accfg:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e0e0e;--fg:#f2f2f2;--mut:#9a9a9a;--line:#2a2a2a;--card:#181818;--acc:#f2f2f2;--accfg:#0e0e0e}}
+:root[data-theme="dark"]{--bg:#0e0e0e;--fg:#f2f2f2;--mut:#9a9a9a;--line:#2a2a2a;--card:#181818;--acc:#f2f2f2;--accfg:#0e0e0e}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:'Archivo',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{width:100%;max-width:1080px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:'Archivo Narrow','Archivo',Arial Narrow,sans-serif;text-transform:uppercase;letter-spacing:-.01em;line-height:1;margin:0}
+.tag{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);font-weight:500}
+
+/* NAV */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:56px}
+.logo{font-family:'Archivo Narrow',Arial Narrow,sans-serif;font-weight:700;font-size:20px;text-transform:uppercase;text-decoration:none;letter-spacing:.02em}
+.menu-btn{background:none;border:1px solid var(--fg);color:var(--fg);font:inherit;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:9px 14px;cursor:pointer}
+.scrim{position:fixed;inset:0;background:rgba(0,0,0,.45);opacity:0;pointer-events:none;transition:opacity .35s;z-index:30}
+.scrim.open{opacity:1;pointer-events:auto}
+.contact{position:fixed;top:0;left:0;bottom:0;width:78%;max-width:360px;background:var(--bg);border-right:1px solid var(--fg);z-index:40;display:flex;flex-direction:column;overflow-y:auto;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);transform:translateX(-101%);visibility:hidden;transition:transform .4s cubic-bezier(.22,.8,.24,1),visibility 0s .4s}
+.contact.open{transform:none;visibility:visible;transition:transform .4s cubic-bezier(.22,.8,.24,1),visibility 0s}
+.dhead{display:flex;align-items:center;justify-content:space-between;min-height:56px;padding:0 20px;border-bottom:1px solid var(--fg);font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+.dhead button{background:none;border:0;color:var(--fg);font-size:20px;cursor:pointer;width:44px;height:44px;margin-right:-12px}
+.big{display:block;padding:0 20px;margin-top:30px;text-decoration:none}
+.big b{display:block;font-family:'Archivo Narrow','Archivo',Arial Narrow,sans-serif;font-size:32px;font-weight:700;text-transform:uppercase;line-height:1.1}
+.big span{display:block;font-size:13px;color:var(--mut);margin-top:4px}
+.sep{height:1px;background:var(--line);margin:32px 0 10px}
+.sm{display:block;padding:12px 20px;text-decoration:none;font-size:13px}
+.sm b{display:block;font-weight:500;letter-spacing:.06em;text-transform:uppercase}
+.sm span{display:block;color:var(--mut);font-size:12.5px}
+
+/* HERO */
+.hero{padding:36px 0 56px;display:grid;gap:28px}
+.hero h1{font-size:clamp(56px,17vw,132px);font-weight:700}
+.hero p.lead{font-size:18px;max-width:34ch;margin:0}
+.ph{position:relative;background:linear-gradient(160deg,var(--c1),var(--c2));overflow:hidden}
+.ph::after{content:attr(data-n);position:absolute;left:14px;bottom:10px;font-family:'Archivo Narrow',Arial Narrow,sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.85)}
+.ph svg{position:absolute;inset:0;width:100%;height:100%;opacity:.22}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top}
+.portrait{aspect-ratio:9/16;width:100%;--c1:#8b8378;--c2:#2b2926}
+
+/* SECTIONS */
+section{padding:56px 0;border-top:1px solid var(--line)}
+.head{display:flex;align-items:baseline;gap:14px;margin-bottom:28px}
+.head h2{font-size:clamp(34px,9vw,64px);font-weight:700}
+.prose p{margin:0 0 16px;max-width:60ch}
+.prose p:last-child{margin:0}
+
+/* CAROUSEL */
+.car{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 20px 6px;margin:0 -20px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.car::-webkit-scrollbar{display:none}
+.slide{flex:0 0 72%;max-width:320px;aspect-ratio:9/16;scroll-snap-align:start}
+.ctrl{display:flex;justify-content:space-between;align-items:center;margin-top:18px}
+.ctrl button{width:44px;height:44px;border:1px solid var(--fg);background:none;color:var(--fg);font-size:18px;cursor:pointer;margin-left:8px}
+.ctrl button:hover{background:var(--acc);color:var(--accfg)}
+
+/* GRID CARDS */
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.box{background:var(--card);padding:16px 14px 18px;min-height:150px;display:flex;flex-direction:column;justify-content:space-between}
+.box .n{font-size:11px;color:var(--mut);letter-spacing:.14em}
+.box h3{font-size:19px;font-weight:700;margin:22px 0 8px}
+.box p{margin:0;font-size:13.5px;line-height:1.45;color:var(--mut)}
+
+/* LISTS */
+.row{display:grid;gap:4px;padding:20px 0;border-top:1px solid var(--line)}
+.row:first-of-type{border-top:0;padding-top:0}
+.row h3{font-size:22px;font-weight:700}
+.row .meta{font-size:12px;color:var(--mut);letter-spacing:.1em;text-transform:uppercase}
+.row p{margin:6px 0 0;font-size:15px;max-width:60ch}
+.dots{display:inline-flex;gap:4px;margin-top:6px}
+.dots i{width:14px;height:5px;background:var(--line)}
+.dots i.on{background:var(--fg)}
+
+footer{border-top:1px solid var(--line);padding:56px 0 40px;text-align:left}
+footer h2{font-size:clamp(40px,12vw,96px);font-weight:700;margin-bottom:24px}
+.cta{display:inline-block;background:var(--acc);color:var(--accfg);padding:16px 28px;text-decoration:none;font-size:12px;letter-spacing:.16em;text-transform:uppercase}
+footer small{display:block;margin-top:36px;color:var(--mut);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+
+/* DESKTOP */
+@media (min-width:860px){
+.menu-btn{display:none}
+.scrim,.dhead,.sep{display:none}
+.contact{position:static;transform:none;visibility:visible;width:auto;max-width:none;border:0;background:none;flex-direction:row;align-items:center;gap:28px;overflow:visible;padding:0}
+.big,.sm{padding:0;margin:0}
+.big b,.sm b{display:none}
+.big span,.sm span{display:inline;margin:0;font-size:13px;color:var(--fg)}
+.bar{height:64px}
+.hero{grid-template-columns:1.15fr .85fr;align-items:end;padding:64px 0 88px;gap:56px}
+.hero .txt{display:grid;gap:26px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+.grid{grid-template-columns:repeat(3,1fr);gap:14px}
+.box{min-height:200px;padding:22px 20px}
+.box h3{font-size:22px}.box p{font-size:14.5px}
+.car{padding:0;margin:0}
+.slide{flex-basis:calc(25% - 9px);max-width:none}
+.row{grid-template-columns:200px 1fr;gap:28px}
+.row .meta{padding-top:6px}
+section{padding:88px 0}
+}
+</style>
+</head>
+<body>
+<header>
+ <div class="scrim" id="sc"></div>
+ <div class="wrap">
+  <div class="bar">
+   <a class="logo" href="#top">Adrina<span style="color:var(--mut)"> / CV</span></a>
+   <button class="menu-btn" id="mb" aria-expanded="false" aria-controls="ct">Contacto</button>
+   <nav class="contact" id="ct" aria-label="Contacto">
+    <div class="dhead"><span>Contacto</span><button id="cl" aria-label="Cerrar">✕</button></div>
+    <a class="big" href="mailto:adrina@email.com"><b>Email</b><span>adrina@email.com</span></a>
+    <a class="big" href="tel:+34600000000"><b>Teléfono</b><span>+34 600 000 000</span></a>
+    <div class="sep"></div>
+    <a class="sm" href="#"><b>Instagram</b><span>@adrina</span></a>
+    <a class="sm" href="#"><b>LinkedIn</b><span>/in/adrina</span></a>
+    <a class="sm" href="#"><b>Ciudad</b><span>Tu ciudad, España</span></a>
+   </nav>
+  </div>
+ </div>
+</header>
+
+<main id="top" class="wrap">
+ <div class="hero">
+  <div class="txt">
+   <span class="tag">Dependienta · Moda · Inditex</span>
+   <h1>Hola,<br>soy Adrina.</h1>
+   <p class="lead">Me encanta la moda, hablar con la gente y que una tienda se vea impecable. Busco mi sitio en Inditex.</p>
+  </div>
+  <div class="ph portrait" data-n="Tu foto · vertical">
+   <svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice"><img src="/foto-cv-brsk.jpeg" alt="Adrián"></svg>
+  </div>
+ </div>
+
+ <section>
+  <div class="head"><span class="tag">01</span><h2>Quién soy</h2></div>
+  <div class="prose two">
+   <div>
+    <p>Tengo 23 años y llevo tres años trabajando de cara al público. Me gusta la parte de la tienda que se nota: el cliente que entra dudando y sale con un look que le encanta.</p>
+    <p>Soy organizada, rápida y cuidadosa con los detalles. Me siento cómoda entre percheros, probadores y caja, y sé mantener el ritmo en campañas y días de mucha afluencia.</p>
+   </div>
+   <div>
+    <p>Fuera del trabajo me muevo entre tiendas, playlists y mercadillos de segunda mano. Sigo las tendencias desde la calle, no solo desde las pasarelas.</p>
+    <p>Busco un equipo joven donde aprender, crecer y aportar buen ambiente.</p>
+   </div>
+  </div>
+ </section>
+
+ <section>
+  <div class="head"><span class="tag">02</span><h2>Por qué Inditex</h2></div>
+  <div class="prose two">
+   <div>
+    <p>Porque marca el ritmo de la moda: colecciones que cambian cada semana y tiendas que se sienten actuales. Quiero trabajar donde las cosas pasan rápido y se hacen bien.</p>
+    <p>Bershka, Pull&amp;Bear o Stradivarius hablan mi idioma: moda joven, accesible y con personalidad.</p>
+   </div>
+   <div>
+    <p>Valoro la cultura de equipo, la formación interna y las posibilidades de crecer, de dependienta a responsable de sección y más allá.</p>
+    <p>También me atrae el compromiso con la sostenibilidad y la innovación en tienda.</p>
+   </div>
+  </div>
+ </section>
+
+ <section>
+  <div class="head"><span class="tag">03</span><h2>Mi estilo</h2></div>
+  <div class="car" id="car">
+   <div class="ph slide" data-n="Look 01" style="--c1:#b7a99a;--c2:#3a332c"><img src="/foto-cv-brsk.jpeg" alt="Look 01"></div>
+   <div class="ph slide" data-n="Look 02" style="--c1:#6f7c86;--c2:#1e2429"><img src="/foto-cv-brsk.jpeg" alt="Look 02"></div>
+   <div class="ph slide" data-n="Look 03" style="--c1:#c9c4bb;--c2:#55504a"><img src="/foto-cv-brsk.jpeg" alt="Look 03"></div>
+   <div class="ph slide" data-n="Look 04" style="--c1:#8a8f7c;--c2:#262a20"><img src="/foto-cv-brsk.jpeg" alt="Look 04"></div>
+   <div class="ph slide" data-n="Look 05" style="--c1:#a08782;--c2:#332624"><img src="/foto-cv-brsk.jpeg" alt="Look 05"></div>
+  </div>
+  <div class="ctrl"><span class="tag" id="cnt">01 / 05</span><div><button id="pv" aria-label="Anterior">←</button><button id="nx" aria-label="Siguiente">→</button></div></div>
+ </section>
+
+ <section>
+  <div class="head"><span class="tag">04</span><h2>Soft skills</h2></div>
+  <div class="grid">
+   <div class="box"><span class="n">01</span><div><h3>Atención al cliente</h3><p>Escucho, aconsejo y hago que cada persona se sienta bien atendida.</p></div></div>
+   <div class="box"><span class="n">02</span><div><h3>Trabajo en equipo</h3><p>Coordinación fluida con caja, probadores y almacén.</p></div></div>
+   <div class="box"><span class="n">03</span><div><h3>Rapidez</h3><p>Rendimiento estable en campañas, rebajas y picos de afluencia.</p></div></div>
+   <div class="box"><span class="n">04</span><div><h3>Comunicación</h3><p>Trato cercano y claro, también con clientes difíciles.</p></div></div>
+   <div class="box"><span class="n">05</span><div><h3>Actitud positiva</h3><p>Energía constante y buen ambiente en el turno.</p></div></div>
+   <div class="box"><span class="n">06</span><div><h3>Adaptabilidad</h3><p>Aprendo rápido cambios de colección, protocolos y herramientas.</p></div></div>
+  </div>
+ </section>
+
+ <section>
+  <div class="head"><span class="tag">05</span><h2>Hard skills</h2></div>
+  <div class="grid">
+   <div class="box"><span class="n">01</span><div><h3>Visual merchandising</h3><p>Montaje de mesas, lineales y maniquíes según directrices de marca.</p></div></div>
+   <div class="box"><span class="n">02</span><div><h3>Caja y TPV</h3><p>Cobros, devoluciones, cambios y arqueos sin errores.</p></div></div>
+   <div class="box"><span class="n">03</span><div><h3>Reposición</h3><p>Control de stock, plegado y orden de tallas en sala.</p></div></div>
+   <div class="box"><span class="n">04</span><div><h3>Gestión de probadores</h3><p>Control de prendas, reposición y atención al cliente.</p></div></div>
+   <div class="box"><span class="n">05</span><div><h3>Manejo de PDA</h3><p>Consulta de existencias, etiquetado y reservas en tienda.</p></div></div>
+   <div class="box"><span class="n">06</span><div><h3>Ofimática</h3><p>Paquete Office, correo y apps de gestión interna.</p></div></div>
+  </div>
+ </section>
+
+ <section>
+  <div class="head"><span class="tag">06</span><h2>Estudios</h2></div>
+  <div class="row"><span class="meta">2021 – 2023</span><div><h3>Ciclo Formativo de Grado Medio</h3><p>Actividades Comerciales · IES Nombre del centro</p></div></div>
+  <div class="row"><span class="meta">2019 – 2021</span><div><h3>Bachillerato</h3><p>Humanidades y Ciencias Sociales · IES Nombre del centro</p></div></div>
+  <div class="row"><span class="meta">2023</span><div><h3>Curso de Visual Merchandising</h3><p>Formación online · 40 horas</p></div></div>
+ </section>
+
+ <section>
+  <div class="head"><span class="tag">07</span><h2>Idiomas</h2></div>
+  <div class="row"><span class="meta">Nativo</span><div><h3>Español</h3><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div></div></div>
+  <div class="row"><span class="meta">B2 · Intermedio alto</span><div><h3>Inglés</h3><div class="dots"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div></div></div>
+  <div class="row"><span class="meta">A2 · Básico</span><div><h3>Francés</h3><div class="dots"><i class="on"></i><i class="on"></i><i></i><i></i><i></i></div></div></div>
+ </section>
+
+ <section>
+  <div class="head"><span class="tag">08</span><h2>Experiencia</h2></div>
+  <div class="row"><span class="meta">2024 – Actualidad</span><div><h3>Dependienta · Tienda de moda</h3><p>Atención en sala, caja, probadores y reposición. Responsable de montar el escaparate en campañas.</p></div></div>
+  <div class="row"><span class="meta">2023 – 2024</span><div><h3>Personal de campaña · Comercio textil</h3><p>Refuerzo en rebajas y Navidad: etiquetado, orden de sala y apoyo en caja.</p></div></div>
+  <div class="row"><span class="meta">2022 – 2023</span><div><h3>Camarera · Cafetería</h3><p>Trato directo con el cliente, gestión de pedidos y trabajo bajo presión los fines de semana.</p></div></div>
+ </section>
+</main>
+
+<footer>
+ <div class="wrap">
+  <span class="tag">¿Hablamos?</span>
+  <h2 style="margin-top:14px">Lista para<br>empezar.</h2>
+  <a class="cta" href="mailto:adrina@email.com">Escríbeme</a>
+  <small>© 2026 Adrina · Disponibilidad inmediata</small>
+ </div>
+</footer>
+
+<script>
+(function(){
+var mb=document.getElementById('mb'),ct=document.getElementById('ct'),sc=document.getElementById('sc');
+function tg(o){ct.classList.toggle('open',o);sc.classList.toggle('open',o);mb.setAttribute('aria-expanded',o);document.documentElement.style.overflow=o?'hidden':''}
+mb.addEventListener('click',function(){tg(true)});
+sc.addEventListener('click',function(){tg(false)});
+document.getElementById('cl').addEventListener('click',function(){tg(false)});
+ct.addEventListener('click',function(e){if(e.target.closest('a'))tg(false)});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')tg(false)});
+window.addEventListener('resize',function(){if(window.innerWidth>=860)tg(false)});
+var c=document.getElementById('car'),s=c.children,cnt=document.getElementById('cnt');
+function step(d){var w=s[0].getBoundingClientRect().width+12;c.scrollBy({left:d*w,behavior:'smooth'})}
+document.getElementById('nx').onclick=function(){step(1)};
+document.getElementById('pv').onclick=function(){step(-1)};
+c.addEventListener('scroll',function(){var w=s[0].getBoundingClientRect().width+12,i=Math.round(c.scrollLeft/w)+1;cnt.textContent=('0'+Math.min(i,s.length)).slice(-2)+' / 0'+s.length});
+})();
+</script>
+</body>
+</html>
